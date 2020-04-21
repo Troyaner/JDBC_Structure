@@ -31,10 +31,11 @@ public class CarStore {
 
         try {
             while (result.next()) {
+                int id = result.getInt("id");
                 String brand = result.getString("brand");
                 String model = result.getString("model");
                 int price = result.getInt("price");
-                cars.add(new Car(brand, model, price));
+                cars.add(new Car(id, brand, model, price));
             }
         } catch (SQLException e) {
             System.out.println("error while parsing cars");

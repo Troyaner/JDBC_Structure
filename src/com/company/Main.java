@@ -9,7 +9,7 @@ public class Main {
         LinkedList<Car> cars = carStore.getCars();
 
         cars.forEach(car -> {
-            System.out.println(car.brand + " " + car.model + " " + car.price);
+            System.out.println(car.id + " - " + car.brand + " " + car.model + " " + car.price);
         });
 
         carStore.deleteCar(15);

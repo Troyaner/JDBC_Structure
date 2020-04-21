@@ -32,6 +32,11 @@ public class DatabaseConnector {
         }
     }
 
+    /**
+     * Make sure to call closeConnection() after handling the result set
+     * @param sql
+     * @return
+     */
     public ResultSet fetchData(String sql) {
         buildConnection();
         try {
