@@ -9,7 +9,7 @@ import java.util.LinkedList;
  */
 public class CarStore {
     private DatabaseConnector dbConnector = new DatabaseConnector();
-    public LinkedList<Car> cars = new LinkedList<>();
+    private LinkedList<Car> cars = new LinkedList<>();
 
     public LinkedList<Car> getCars() {
         if (cars.isEmpty()) {
