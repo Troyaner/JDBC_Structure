@@ -5,11 +5,15 @@ import java.sql.*;
 public class DatabaseConnector {
     private Connection connection = null;
     private Statement statement = null;
+    private String url;
 
+    DatabaseConnector(String url) {
+        this.url = url;
+    }
 
     private void buildConnection() {
         try {
-            String databaseUrl = "jdbc:mysql://localhost:3307/car_example?user=root";
+            String databaseUrl = url;
             connection = DriverManager.getConnection(databaseUrl);
             statement = connection.createStatement();
         } catch (SQLException e) {

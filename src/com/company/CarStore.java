@@ -2,16 +2,27 @@ package com.company;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 /**
  * Offers methods to fetch, delete, update and insert cars. Also stores a car list.
  */
 public class CarStore {
-    private DatabaseConnector dbConnector = new DatabaseConnector();
-    private LinkedList<Car> cars = new LinkedList<>();
+    private DatabaseConnector dbConnector = new DatabaseConnector("jdbc:mysql://localhost:3307/car_example?user=root");
+    private ArrayList<Car> cars = new ArrayList<>();
 
-    public LinkedList<Car> getCars() {
+    private static CarStore instance = null;
+    private CarStore() {}
+
+    public static CarStore getInstance() {
+        if (instance == null) {
+            instance = new CarStore();
+        }
+
+        return instance;
+    }
+
+    public ArrayList<Car> getCars() {
         if (cars.isEmpty()) {
             fetchCars();
         }
